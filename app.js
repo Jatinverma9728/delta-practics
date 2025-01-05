@@ -47,6 +47,7 @@
 
 let marks = prompt("Enter Your Marks");
 
+
 if (marks >= "33") {
   console.log("Pass");
   if (marks >= "90") {
