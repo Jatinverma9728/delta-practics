@@ -1,6 +1,5 @@
 // ---------------------Statements---------------
 
-
 // let age = prompt("enter your age");
 
 // if (age >= 18) {
@@ -64,13 +63,11 @@
 //     console.log("Good You Got D Grade");
 //   }
 // } else console.log("Better Luck Next Time");
- 
-
 
 // --------------------Logical Operator-------------------
 
 let str = "apple";
 
-if (str.length >= 3 && str[0]==="a"){
-    console.log("Good string")
-}else(console.log('bad string'))
+if (str.length >= 3 && str[0] === "a") {
+  console.log("Good string");
+} else console.log("bad string");
