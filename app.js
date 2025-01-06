@@ -1,3 +1,6 @@
+// ---------------------Statements---------------
+
+
 // let age = prompt("enter your age");
 
 // if (age >= 18) {
@@ -45,20 +48,29 @@
 //   console.log("Invalid Value");
 // }
 
-let marks = prompt("Enter Your Marks");
+// let marks = prompt("Enter Your Marks");
+
+// if (marks >= "33") {
+//   console.log("Pass");
+//   if (marks >= "90") {
+//     console.log("Good You Got A+ Grade");
+//   } else if (marks >= "80") {
+//     console.log("Good You Got A Grade");
+//   } else if (marks >= "70") {
+//     console.log("Good You Got B Grade");
+//   } else if (marks >= "60") {
+//     console.log("Good You Got C Grade");
+//   } else if (marks >= "50") {
+//     console.log("Good You Got D Grade");
+//   }
+// } else console.log("Better Luck Next Time");
+ 
 
 
-if (marks >= "33") {
-  console.log("Pass");
-  if (marks >= "90") {
-    console.log("Good You Got A+ Grade");
-  } else if (marks >= "80") {
-    console.log("Good You Got A Grade");
-  } else if (marks >= "70") {
-    console.log("Good You Got B Grade");
-  } else if (marks >= "60") {
-    console.log("Good You Got C Grade");
-  } else if (marks >= "50") {
-    console.log("Good You Got D Grade");
-  }
-} else console.log("Better Luck Next Time");
+// --------------------Logical Operator-------------------
+
+let str = "apple";
+
+if (str.length >= 3 && str[0]==="a"){
+    console.log("Good string")
+}else(console.log('bad string'))
