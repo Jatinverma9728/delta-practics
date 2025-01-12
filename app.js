@@ -262,13 +262,13 @@
 // }
 
 // checking the desire index of this arry charcter is upper case or not
-let char = "HelLo WorLd!";
-let idx = 1;
-if (char[idx] == char[idx].toUpperCase()) {
-  console.log(`Character is in Upper Case ${char[idx]}`);
-} else {
-  console.log(`Character is not in upper case : ${char[idx]}`);
-}
+// let char = "HelLo WorLd!";
+// let idx = 1;
+// if (char[idx] == char[idx].toUpperCase()) {
+//   console.log(`Character is in Upper Case ${char[idx]}`);
+// } else {
+//   console.log(`Character is not in upper case : ${char[idx]}`);
+// }
 
 // ------Checking the desire index of this arry is prime or odd
 // let num = [2, 5, 3, 34, 5, 6, 56, 4];
@@ -285,11 +285,31 @@ if (char[idx] == char[idx].toUpperCase()) {
 
 // console.log(string.trim());
 
-let newArr = [2, 12, 223, 3, 5, "helo", "a"];
-let find = 6;
+// let newArr = [2, 12, 223, 3, 5, "helo", "a"];
+// let find = 6;
 
-if (newArr.indexOf(find) != -1) {
-  console.log("element is exist in array");
-} else {
-  console.log("element is not exist in array");
+// if (newArr.indexOf(find) != -1) {
+//   console.log("element is exist in array");
+// } else {
+//   console.log("element is not exist in array");
+// }
+
+// for(let i = 1; i <=500; i++){
+//   console.log(i)
+// }
+// for(let j = 5; j >= 1; j--){
+//   console.log(j)
+// }
+
+// -----print odd numbers 1 to 15
+
+for (let i = 1; i <= 15; i = i + 2) {
+  console.log(`number is ${i} is odd`);
+}
+for (let i = 100; i >= 1; i = i - 2) {
+  console.log(`number is ${i} is odd`);
+}
+
+for (let i = 2; i <= 10; i = i + 2) {
+  console.log(i);
 }
