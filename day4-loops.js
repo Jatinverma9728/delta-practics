@@ -1,4 +1,3 @@
-
 // for(let i = 1; i <=500; i++){
 //   console.log(i)
 // }
@@ -19,7 +18,6 @@
 //   console.log(i);
 // }
 
-
 // for(let i=5; i<=50; i=i+5){
 //   console.log(i)
 // }
@@ -37,7 +35,85 @@
 //   }
 // }
 
-
 // ----------While Loop---------------
 
+// let i = 1;
+// while (i<=5) {
+//   console.log(i);
+//   i++
+// }
 
+// let i = 5;
+// while (i>=1) {
+//   console.log(i);
+//   i--;
+// }
+
+// let i = 0;
+// while (i<=20) {
+//   console.log(i);
+//   i++
+// }
+
+//------even number print
+
+// let i = 2;
+// while (i <= 20) {
+//   console.log(i);
+//   i = i + 2;
+// }
+
+// -----------Odd number print--------
+
+// let i = 1;
+// while(i<=20){
+//   console.log(i);
+//   i = i+2;
+// }
+
+// ------------Activity-----------
+
+// const favMovie = "avatar";
+
+// let guess = prompt("Guess my fav movie name");
+
+// while (guess != favMovie && guess != "quit") {
+//   guess = prompt(" worng please try again ");
+// }
+
+// if (guess == favMovie) {
+//   console.log("congrulations");
+// } else {
+//   console.log("you Quit");
+// }
+
+// let i = 1;
+// while (i <= 5) {
+//   if(i==3){
+//     break;
+//   }
+//   console.log(i);
+//   i++;
+// }
+
+// let furits = [
+//   "Apple",
+//   "Mango",
+//   "Banana",
+//   "Guvava",
+//   "Litchi",
+//   "Orange",
+//   "Grapes",
+// ];
+
+// furits.push("Pineapple");
+// // for (let i = 0; i < furits.length; i++) {
+// //   console.log(i, furits[i]);
+// // }
+// for (let i = furits.length - 1; i >= 0; i--) {
+//   console.log(i, furits[i]);
+// }
+
+
+
+ 
