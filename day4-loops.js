@@ -77,14 +77,16 @@
 
 // let guess = prompt("Guess my fav movie name");
 
-// while (guess != favMovie && guess != "quit") {
+// while (guess != favMovie) {
+//   if (guess == "quit") {
+//     console.log("You Quit");
+//     break;
+//   }
 //   guess = prompt(" worng please try again ");
 // }
 
 // if (guess == favMovie) {
 //   console.log("congrulations");
-// } else {
-//   console.log("you Quit");
 // }
 
 // let i = 1;
@@ -114,6 +116,80 @@
 //   console.log(i, furits[i]);
 // }
 
+// let heroes = [
+//   ["Superman", "Batman", "Wonderwomen"],
+//   ["Ironman", "Thor", "Hulk"],
+// ];
 
+// for (let i = 0; i < heroes.length; i++) {
+//   console.log(`main array #${i + 1}`);
+//   for (allHeroes of i) {
+//     console.log(heroes[i][j]);
+//   }
+// }
 
- 
+// --------------for of loop----------------
+
+// in this there is no any increment operator or any condition is required it bassically print all the things without cheking any conditon
+
+// let name = ['Jatin']
+
+// for(char of name){
+//     console.log(char)
+// }
+
+// let furits = ['apple','banana','mango','orange']
+// for(furit of furits){
+//     console.log(furit)
+// }
+
+// let her = "jatin verma";
+// for(name of ' jatin verma'){
+//     console.log(name)
+// }
+
+// nested for of loop-------
+
+// let heroes = [
+//   ["Superman", "Batman", "Wonderwomen"],
+//   ["Ironman", "Thor", "Hulk"],
+// ];
+
+// for(list of heroes){
+//     // console.log(list);
+//     for(hero of list){
+//         console.log(hero)
+//     }
+// }
+
+// ------------to do app------------
+
+let todo = [];
+
+let req = prompt("please enter your request");
+
+while (true) {
+  if (req == "quit") {
+    console.log("quitting app");
+    break;
+  }
+
+  if (req == "list") {
+    console.log("-------------------------");
+    for (let i = 0; i < todo.length; i++) {
+      console.log(i, todo[i]);
+    }
+    console.log("-------------------------");
+  } else if (req == "add") {
+    let task = prompt("please enter your task you want to add ");
+    todo.push(task);
+    console.log("task added");
+  } else if (req == "delet") {
+    let idx = prompt("please enter the task index you want to delete");
+    todo.splice(idx, 1);
+    console.log("task deleted");
+  } else {
+    console.log("Invalid request. Please enter 'add', 'list', or 'quit'.");
+  }
+  req = prompt("please enter your request");
+}
