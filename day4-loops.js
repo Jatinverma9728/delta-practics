@@ -192,3 +192,54 @@
 //   }
 //   req = prompt("please enter your request");
 // }
+
+// ------QS---------Write a JS program to delete all occurrences of element ‘num’ in a given array.
+//  if arr=[1,2,3,4,5,6,2,3] & num=2
+//  Resultshouldbearr=[1,3,4,5,6,3]
+
+// let arr = [1, 2, 3, 4, 5, 6, 2, 3];
+// let num = 2;
+
+// for (let i = 0; i < arr.length; i++) {
+//   // console.log(i, arr[i]);
+//   if (arr[i] == num) {
+//     arr.splice(i, 1);
+//   }
+// }
+// console.log(arr);
+
+// let arr = [
+//   ["ironman", "spiderman", "thor"],
+//   ["superman", "wonder women", "ironman", "spiderman"],
+// ];
+// let f = "ironman";
+
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(i, arr[i]);
+//   for (let j = 0; j < arr[i].length; j++) {
+//     console.log(arr[i][j]);
+
+//     if (arr[i][j] == f) {
+//       arr[i].splice(j, 1);
+//     }
+//   }
+// }
+
+// console.log(arr)
+
+// Qs2. Write a JS program to find the no of digits in a number.
+//  Example: if number = 287152, count = 6
+
+// let arr = [2871652];
+// let count = 6;
+
+// console.log(arr.length)
+
+// find the factorial of the number
+
+let num = prompt("enter any number");
+let factorial = 1;
+for (let i = 1; i <= num; i++) {
+  factorial *= i;
+}
+console.log(`The factorial of ${num} is ${factorial}`);
