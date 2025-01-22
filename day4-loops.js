@@ -237,9 +237,9 @@
 
 // find the factorial of the number
 
-let num = prompt("enter any number");
-let factorial = 1;
-for (let i = 1; i <= num; i++) {
-  factorial *= i;
-}
-console.log(`The factorial of ${num} is ${factorial}`);
+// let num = prompt("enter any number");
+// let factorial = 1;
+// for (let i = 1; i <= num; i++) {
+//   factorial *= i;
+// }
+// console.log(`The factorial of ${num} is ${factorial}`);
