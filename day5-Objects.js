@@ -98,23 +98,44 @@
 
 // Math.floor(Math.random() * 5 + 20);// 20-24
 
-const max = prompt("enter the maxmim number");
+// const max = prompt("enter the maxmim number");
 
-const comNum = Math.floor(Math.random() * max) + 1;
-console.log(comNum);
-let guess = prompt("guess the number");
+// const comNum = Math.floor(Math.random() * max) + 1;
+// console.log(comNum);
+// let guess = prompt("guess the number");
 
-while (true) {
-  if (guess == "quit") {
-    console.log("You Quit");
-    break;
-  }
-  if (guess == comNum) {
-    console.log("Congrts you guess = ", guess);
-    break;
-  } else if (guess > comNum) {
-    guess = prompt("guess high", guess);
-  } else {
-    guess = prompt("guess low");
-  }
+// while (true) {
+//   if (guess == "quit") {
+//     console.log("You Quit");
+//     break;
+//   }
+//   if (guess == comNum) {
+//     console.log("Congrts you guess = ", guess);
+//     break;
+//   } else if (guess > comNum) {
+//     guess = prompt("guess high", guess);
+//   } else {
+//     guess = prompt("guess low");
+//   }
+// }
+
+
+// ----------------------QS-------------------
+
+// let dice = Math.floor((Math.random()*6)+1);
+// console.log(dice)
+
+// let car ={
+//     brand:'Toyota',
+//     modal:'Fortuner',
+//     color:'Black',
+//     transmission:'4*4'
+// }
+
+
+let person ={
+    name:'jatin',
+    city:'bhiwani'
 }
+person.city='New York';
+person.country='United Sates'
