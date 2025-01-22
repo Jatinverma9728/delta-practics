@@ -133,9 +133,9 @@
 // }
 
 
-let person ={
-    name:'jatin',
-    city:'bhiwani'
-}
-person.city='New York';
-person.country='United Sates'
+// let person ={
+//     name:'jatin',
+//     city:'bhiwani'
+// }
+// person.city='New York';
+// person.country='United Sates'
