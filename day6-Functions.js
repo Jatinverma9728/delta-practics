@@ -181,7 +181,6 @@
 // console.log(greet);
 // changeGreet();
 
-
 // let sum = function(a,b){
 //   return a+b;
 // }
@@ -194,3 +193,64 @@
 
 // ----higher order function----------
 
+// function multipleGreet(func,n){
+//     for(let i=1;i<=n;i++){
+//         func()
+//     }
+// }
+// let greet = function(){
+//     console.log('hello');
+
+// }
+// multipleGreet(greet,2)
+// multipleGreet(function () {
+//   console.log("k hal h ");
+// }, 2);
+
+// function oddEvenTest(request) {
+//   if (request == "odd") {
+//     let odd = function (n) {
+//       console.log(!(n % 2 == 0));
+//     };
+//     return odd;
+//   } else if (request == "even") {
+//     let even = function (n) {
+//       console.log(n % 2 == 0);
+//     };
+//     return even;
+//   } else {
+//     console.log("wrong request");
+//   }
+// }
+// let request = "even";
+// let func = oddEvenTest(request);
+
+// let calculator = {
+//   add: function (a, b) {
+//     return a + b;
+//   },
+//   sub: function (a, b) {
+//     return a - b;
+//   },
+//   mul: function (a, b) {
+//     return a * b;
+//   },
+// };
+// console.log(calculator.add(1,2));
+// console.log(calculator.sub(7,3));
+// console.log(calculator.mul(4,4));
+
+// let calculator = { // same thing like upper but syntax change function keyword use nhi hua and oblect me key nhi banani pdi
+//   add(a, b) {
+//     return a + b;
+//   },
+//   sub(a, b) {
+//     return a - b;
+//   },
+//   mul(a, b) {
+//     return a * b;
+//   },
+// };
+// console.log(calculator.add(1,2));
+// console.log(calculator.sub(7,3));
+// console.log(calculator.mul(4,4));
