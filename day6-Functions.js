@@ -254,3 +254,68 @@
 // console.log(calculator.add(1,2));
 // console.log(calculator.sub(7,3));
 // console.log(calculator.mul(4,4));
+
+// ----------QS-------------------
+
+// let arr = [8, 9, 1, 23, 3, 4, 5, 6, 34, 32, 5, 12, , 3, 2, 10, 56];
+// let num = 10;
+
+// function getElements(arr, num) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > num) {
+//       console.log(arr[i]);
+//     }
+//   }
+// }
+
+// getElements(arr, num);
+
+// ----------------
+
+// let elements = ["apple", "banana", "grapes", "mango"];
+// let check = "kiwi";
+
+// function findElement(elements, check) {
+//   for (let i = 0; i < elements.length; i++) {
+//     if (elements[i] == check) {
+//       console.log(`Element is present ${elements[i]}`);
+//       break;
+//     } else {
+//       console.log("element not found");
+//     }
+//   }
+// }
+// findElement(elements, check);
+
+//---------------
+
+// let str = "abcdabcdefefabcd";
+// let ans = "";
+// // console.log(str.length);
+// function findCharacters(str) {
+//   for (let i = 0; i < str.length; i++) {
+//     // console.log(str[i]);
+//     let currentChar = str[i];
+//     if (ans.indexOf(currentChar) == -1) {
+//       ans += currentChar; // ans = ans + currentChar
+//     }
+//   }
+//   console.log(ans);
+// }
+// findCharacters(str);
+
+let country = ["Australia", "Germany", "United State Of America"];
+
+function findLength(country) {
+  let ansIdx = 0;
+  for (let i = 0; i < country.length; i++) {
+    let ansLen = country[ansIdx].length;
+    let currLen = country[i].length;
+    if (currLen > ansLen) {
+      ansIdx = i;
+    }
+  }
+  console.log(country[ansIdx])
+  return country[ansIdx];
+}
+findLength(country);
