@@ -338,3 +338,16 @@
 //   return count;
 // }
 // console.log(countChar(str));
+
+
+// let startNum = 10;
+// let endNum = 30;
+
+// // console.log(Math.floor(Math.random() * 10)+1);
+
+// function  randNum(startNum,endNum){
+//   let diff = endNum-startNum; // ye to sirf range nikal rha h ki kitne ki value hogi 
+//   return Math.floor(Math.random() * diff)+startNum ; // yha pr hum ek random number return krva rhe h 
+//   //matlab yha kya ho rha h math.flor decimal ko htaye ga and math.random ek number generate kre ga 0-1 ke bich me thik  or diff se multiply iss liye krvaya h kyuki hume range me number or diff me jo bhi number hogi usse 1 ki multiply ho jayegi chahiye or startNum ko add iss liye kiye h taki number start num se bde mile 
+// }
+// console.log(randNum(startNum, endNum)); // and then log krva denge apne fnction ko 
