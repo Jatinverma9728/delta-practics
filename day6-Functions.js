@@ -304,18 +304,37 @@
 // }
 // findCharacters(str);
 
-let country = ["Australia", "Germany", "United State Of America"];
+// let country = ["Australia", "Germany", "United State Of America"];
 
-function findLength(country) {
-  let ansIdx = 0;
-  for (let i = 0; i < country.length; i++) {
-    let ansLen = country[ansIdx].length;
-    let currLen = country[i].length;
-    if (currLen > ansLen) {
-      ansIdx = i;
-    }
-  }
-  console.log(country[ansIdx])
-  return country[ansIdx];
-}
-findLength(country);
+// function findLength(country) {
+//   let Idx = 0;
+//   for (let i = 0; i < country.length; i++) {
+//     let ansLen = country[Idx].length;
+//     let currLen = country[i].length;
+//     if (currLen > ansLen) {
+//       Idx = i;
+//     }
+//   }
+//   console.log(country[Idx])
+//   return country[Idx];
+// }
+// findLength(country);
+
+// let str = "jatinverma";
+
+// function countChar(str) {
+//   let count = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (
+//       str.charAt(i) == "a" ||
+//       str.charAt(i) == "e" ||
+//       str.charAt(i) == "i" ||
+//       str.charAt(i) == "o" ||
+//       str.charAt(i) == "u"
+//     ) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(countChar(str));
