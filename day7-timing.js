@@ -70,8 +70,65 @@
 
 // ---------Set timeout functions--------
 
-console.log("hi there");
-setTimeout(() => {
-  console.log("verma house");
-}, 4000);
-console.log("welcome to");
+//ye kya hota h timeout? ye basically ek function h jo run hota h tming pe like delay jise bolsakte h
+// console.log("hi there");
+// setTimeout(() => {
+//   console.log("verma house");
+// }, 4000);
+// console.log("welcome to");
+
+// setInterval bhi esa hi hota h delay ke sath to chale ga but chalta rhe ga with a desirable interval
+
+// console.log("hello");
+// setInterval(() => {
+//   console.log("k dhang h");
+// }, 200);
+// console.log("ladle");
+
+// ab ye chalta rhe ga leking hume agar ise rokna ho to. to us ke liye hum iss pure function ko individual variable(id) me store kr sakte h
+
+// let id = setInterval(() => {
+//   console.log("k dhang h");
+// }, 200);
+// console.log("ladle");
+
+//ye kuch extra kiya h mene ki kine der tk chale ga is uper wale me se liya id or uska timeout me dal diya
+
+// setTimeout(()=>{
+//   clearInterval(id);
+// },3000)
+
+// ---------this with functions---------
+// Traditional function me this function call ke context ko refer karta hai. Matlab, jo object function ko call karega, this usi ko refer karega.
+
+// Arrow function me this parent scope ka this use karta hai. Matlab, jisme arrow function likha hai, wahi this ka reference milega.
+
+let student = {
+  name: "jatin",
+  marks: 70,
+  // property: this,
+  getName: function () {
+    console.log(this); // global scope
+    return this.name;
+  },
+  getMarks: () => {
+    console.log(this); //parent's scope --> window
+    return this.marks;
+  },
+  getInfo1: function () {
+    setTimeout(() => {
+      console.log(this);//student
+    }, 2000);
+  },
+  getInfo2: function () {
+    setTimeout(function () {
+      console.log(this);//window
+    }, 2000);
+  },
+};
+console.log(student.getName());
+// answer mil jayega
+console.log(student.getMarks());
+// answer mile ga undefined kyu ki iss baar arrow function use kiya h,or student ka scope window h or window me marks defined hi nhi h to undefined aayega.
+
+// agar hum window.marks = 209; ese kuch krke value ko assign kr de to answer mil jaye ga but us answer ka function se kuch lena dena nhi hoga
