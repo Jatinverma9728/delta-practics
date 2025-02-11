@@ -103,32 +103,120 @@
 
 // Arrow function me this parent scope ka this use karta hai. Matlab, jisme arrow function likha hai, wahi this ka reference milega.
 
-let student = {
-  name: "jatin",
-  marks: 70,
-  // property: this,
-  getName: function () {
-    console.log(this); // global scope
-    return this.name;
-  },
-  getMarks: () => {
-    console.log(this); //parent's scope --> window
-    return this.marks;
-  },
-  getInfo1: function () {
-    setTimeout(() => {
-      console.log(this);//student
-    }, 2000);
-  },
-  getInfo2: function () {
-    setTimeout(function () {
-      console.log(this);//window
-    }, 2000);
-  },
-};
-console.log(student.getName());
-// answer mil jayega
-console.log(student.getMarks());
+// let student = {
+//   name: "jatin",
+//   marks: 70,
+//   // property: this,
+//   getName: function () {
+//     console.log(this); // global scope
+//     return this.name;
+//   },
+//   getMarks: () => {
+//     console.log(this); //parent's scope --> window
+//     return this.marks;
+//   },
+//   getInfo1: function () {
+//     setTimeout(() => {
+//       console.log(this); //student
+//     }, 2000);
+//   },
+//   getInfo2: function () {
+//     setTimeout(function () {
+//       console.log(this); //window
+//     }, 2000);
+//   },
+// };
+// console.log(student.getName());
+// // answer mil jayega
+// console.log(student.getMarks());
 // answer mile ga undefined kyu ki iss baar arrow function use kiya h,or student ka scope window h or window me marks defined hi nhi h to undefined aayega.
 
 // agar hum window.marks = 209; ese kuch krke value ko assign kr de to answer mil jaye ga but us answer ka function se kuch lena dena nhi hoga
+
+// -------Question-------------
+// const square = (n) => {
+//   return n * n;
+// };
+
+// let id = setInterval(() => {
+//   console.log("hello world");
+// }, 2000);
+// setTimeout(() => {
+//   clearInterval(id);
+//   console.log('line complete');
+
+// }, 10000);
+
+// ----------QS1------------
+
+// const arrayAverage = () => {
+//   let sum = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     sum += array[i];
+//   }
+//   return sum / array.length;
+// };
+// let array = [1,2,3,4,5];
+// console.log(arrayAverage(array));
+
+// -------question2------------
+
+// let num = 4;
+
+// const isEven = (num) => {
+//   num % 2 == 0;
+// };
+
+// ---------Question 3------------
+// const obj = {
+//   message: "hello world",
+//   logMessage() {
+//     console.log(this.message);
+//   },
+// };
+// console.log(obj.logMessage()); // yha pr answer mil jayega hello world
+
+// setTimeout(obj.logMessage, 1000); // but yha pr obj.logMessage call ho rha setTimeout ke duara to iss liys yha undefined aayega
+
+//ans---undefined   undefined isliye aa raha hai kyunki setTimeout(obj.logMessage, 1000) mein logMessage ek standalone function ban jata hai, jisme this global object (window) ko refer karta hai, na ki obj ko.
+
+// -------Question 4------------
+
+// let length = 4;
+
+// function call() {
+//   console.log(this.length);
+// }
+// const object = {
+//   length: 5,
+
+//   met(call) { // ye method and object sab consfuse krne ke liye hi h bass agr inhe hta ke simple functction ko call lrenge to bhi annswer same hoga...
+//     call();
+//   },
+// };
+// call()
+// object.met(call, 1, 2);
+// Important:
+// Browser me: window.length ka value browser ke loaded scripts ka count hota hai.
+// Node.js me: global.length nahi hota, to undefined print hoga.
+
+
+// +++++++++++++++++++flow chart+++++++++++++++++++
+
+// Start
+//    ↓
+// Define length = 4
+//    ↓
+// Define function call()
+//    ↓
+// Define object { length: 5, met() }
+//    ↓
+// Call object.met(call, 1, 2)
+//    ↓
+// Inside met(): Execute call()
+//    ↓
+// call() is a normal function call → this = Global Object
+//    ↓
+// Print this.length (depends on execution environment)
+//    ↓
+// End
