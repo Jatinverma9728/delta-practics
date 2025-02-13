@@ -124,7 +124,15 @@
 // });
 // console.log(totalPrice);
 
-
 //Q.10 Ek array ke unique values print karo using forEach (duplicates remove karke).
 
 let numbers = [1, 2, 3, 2, 4, 1, 5, 6, 4];
+
+let difNum=[];
+
+numbers.forEach((numbers) => {
+  if (!difNum.includes(numbers)) {
+    difNum.push(numbers);
+  }
+});
+console.log(difNum);
