@@ -200,7 +200,6 @@
 // Browser me: window.length ka value browser ke loaded scripts ka count hota hai.
 // Node.js me: global.length nahi hota, to undefined print hoga.
 
-
 // +++++++++++++++++++flow chart+++++++++++++++++++
 
 // Start
