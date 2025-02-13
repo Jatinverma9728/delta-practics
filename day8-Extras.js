@@ -126,13 +126,37 @@
 
 //Q.10 Ek array ke unique values print karo using forEach (duplicates remove karke).
 
-let numbers = [1, 2, 3, 2, 4, 1, 5, 6, 4];
+// let numbers = [1, 2, 3, 2, 4, 1, 5, 6, 4];
 
-let difNum=[];
+// let difNum=[];
 
-numbers.forEach((numbers) => {
-  if (!difNum.includes(numbers)) {
-    difNum.push(numbers);
-  }
+// numbers.forEach((numbers) => {
+//   if (!difNum.includes(numbers)) {
+//     difNum.push(numbers);
+//   }
+// });
+// console.log(difNum);
+
+// +++++++++++++ Map & filter ++++++++++
+
+//map is very similar to forEach but the difference is it reutrn the values in a new array.aur jo nai arr dega uska size original array ke jitna hi rhega
+
+// let num = [1, 2, 3, 4];
+// let double = num.map((a) => {
+//   return a * 2;
+// });
+// console.log(double);
+
+let stu = [
+  {  name: "jatin",
+     marks: 75 
+    },
+  {
+    name: "vaishnavi",
+    marks: 88,
+  },
+];
+let gpa = stu.map((a) => {
+  return a.marks / 10;
 });
-console.log(difNum);
+console.log(gpa);
