@@ -1,6 +1,8 @@
 //+++++++++ForEach++++++++++++++++
 // it is a type of a loop it is similar to for of loop. matlab ye sabhi elements ke liye ek ek chiz krne ke liye.
 
+// const { log } = require("console");
+
 // const { all } = require("axios");
 
 // let arr = [1, 2, 3, 4, 5];
@@ -298,15 +300,129 @@
 //   1,2,3,2,2,-1,56,8,9,0
 // ));  //for finding the smallest number
 
-
-let arr = [
-  1, 2, 3, 4, 5, 6, 7, 8, 92, 3, 3, 44, 55, 6, 3, 2, 2, 2, -1, 56, 8, 9, 0,
-];
-let name = "jatin"
-// console.log(Math.min(arr)); //NaN aayega kyu ki iss ko pta nhi h konse numbers ko comare krna h sabhi kr krna h to sabhi ke indexes bhi likhne pdege. to bar bar index likhne se bachne ke liye humare pass spread method hota h (...) kisi pr bhi iteration krna h to us arr ke naam ke aage 3 dot '...' lga deni h bas. it can be use in strings 
+// let arr = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 92, 3, 3, 44, 55, 6, 3, 2, 2, 2, -1, 56, 8, 9, 0,
+// ];
+// let name = "jatin"
+// console.log(Math.min(arr)); //NaN aayega kyu ki iss ko pta nhi h konse numbers ko comare krna h sabhi kr krna h to sabhi ke indexes bhi likhne pdege. to bar bar index likhne se bachne ke liye humare pass spread method hota h (...) kisi pr bhi iteration krna h to us arr ke naam ke aage 3 dot '...' lga deni h bas. it can be use in strings
 
 // console.log(Math.min(arr[0],arr[1],arr[2])); ese krke bhi result milsakta h but bhaut badda ho jayega code
-console.log(...name);
+// console.log(...name);
+
+// console.log(Math.min(...arr)); // ab anwer mil jaye ga
+
+// +++++++++++++Spread with array lierals++++++++++
+
+// jab bhi humare pas koi exesting array hota h aur use se koi uski copy bnana chate h ya kisi or jaghe ko bhejne ki kosi krte h to us value ko individual bhejne ke liye hum spread ko use krte h  we also use spread in strings
+
+// let arr=[1,2,3,4,5,6,7]
+// let newArr =[...arr]
+// console.log(newArr);//[1, 2, 3, 4,5, 6, 7]
+
+// let char=[...'hello']
+// console.log(char); //[ 'h', 'e', 'l', 'l', 'o' ]
+
+let odd = [1, 3, 5, 7, 9];
+// let even = [2,4,6,8,10]
+// let both=[...odd,...even]
+// console.log(both);//[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+
+// +++++++++++Spread with object+++++++++++
+
+// const data = {
+//   email: "jatim@gmail.com",
+//   password: "abcd",
+// };
+// console.log(data); //{ email: 'jatim@gmail.com', password: 'abcd'}
+
+// const newData = {
+//   ...data,
+//   id: 123123,
+//   ...odd
+// };
+// console.log(newData); //{ email: 'jatim@gmail.com', password: 'abcd', id: 123123 }
+
+// +++++++++++++++++REST++++++++++++++++
+// ye ek esa tarika h jiss me hum in infinite numbers ko as arguments le sakte h. ye vha use hote h jha hume pta nhi hota ki kitne arguments lene h, or bass ek  banana h or us me ek argument pass krva na h but uske phle 3 dot ... lga deni h.
+
+// function sum(...args) {
+//   for (let i = 0; i < args.length; i++) {
+//     console.log(`hii everyone,${args[i]}`);
+//   }
+//   console.log(args.length);
+// }
+// sum(1, 2);
+
+// function min(a, b, c) {
+//   console.log(arguments); // yha aap ye socho ge ki aapne koi arguments naam ka variable declare hi nhi kya to error kyu nhi aarha h, kyuki har in functions me har argument ek arguments naam ke ek collection me store hota h by default
+// }
+// console.log(min(1, 2, 3, 4, 5)); //Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5 }
+
+//ye jo arguments vo exactly ek arry nhi h jo jo methods array pr kaam krete h hum unko arguments ke sath use nhi kre sakte.agr hume use krna h array ke methods ko to hum REST ko use krenge,and arguments wale keyword ko use nhi krenge.
+// agr hum function me se jo argument hta bhi denge to bhi koi dikkat nhi hogi
+
+// function sum(param, ...args) {
+//   console.log(param);
+
+//   return args.reduce((a, b) => a + b);
+// }
+// console.log(sum(1, 1, 5, 1, 2, 4, 5)); //1
+// //18
+
+// ++++++++++++Destructring++++++++++++++
+//store values of array into multiple variables.
+// Destructring ka matlab hota h todna
+
+// let names=['jatin','vaishnavi','hello world','abc','pqr','xyz']
+// let [winner,runners]=names; // ek chiz yaad rakhne ki h sabhi chize index me honi cahiye, lakie sabhi values index me assign hongi, jese iss example me h first array ke element ko winner me assign hua h and second element ko runners me assing hui h
+// console.log(winner,runners);
+
+// agar hume baki ki values ko bhi kisi me assign krna ho to, tab hum use krenge rest ko
+// let [winners,runner,...others]=names;
+// console.log(winners,runner,others);//jatin vaishnavi [ 'hello world', 'abc', 'pqr', 'xyz' ]
+//iss me other ek array ban jaye ga
+
+// +++++++++++Destructing Objects++++++++++
+
+// const stu = {
+//   name: "jatin",
+//   age: 21,
+//   class: "BCA 3rd year",
+//   subjects: ["Python", "CG", "IOT"],
+//   username: "iamjatin_vrma",
+//   password: "J....a",
+// };
+// let { username:user, password:secret,city='bhiwani' } = stu;
+
+// +++++++++++QUESTION+++++++++++++++++
+
+//  Qs1. Square and sum the array elements using the arrow function and then find the average of the array.
+
+// let nums=[1,2,3];
+
+// const square = nums.map((a)=>a*a)
+// console.log(square);
+
+// const sum = square.reduce((a,b)=>a+b)
+// console.log(sum);
+// console.log(sum/nums.length);
+
+//  Qs2. Create a new array using the map function whose each element is equal to the original element plus 5.
+
+// let numbers=[2,4,6,8,-2,4]
+// let newArray = numbers.map((a)=>a+5)
+// console.log(newArray);
 
 
-console.log(Math.min(...arr)); // ab anwer mil jaye ga
+// Qs3. Create a new array whose elements are in uppercase of words present in the original array.
+
+// let names= ['adam','alok','crono','k','kelly','maxim','skyler']
+
+// let uppercase= names.map((a)=>a.toUpperCase())
+// console.log(uppercase);
+
+
+//  Qs4. Write a function called doubleAndReturnArgs which accepts an array and a variable number of arguments. The function should return a new array with the original array values and all of the additional arguments doubled.
+
+
+function doubleAndReturnArgs(){}
