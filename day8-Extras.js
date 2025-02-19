@@ -413,7 +413,6 @@ let odd = [1, 3, 5, 7, 9];
 // let newArray = numbers.map((a)=>a+5)
 // console.log(newArray);
 
-
 // Qs3. Create a new array whose elements are in uppercase of words present in the original array.
 
 // let names= ['adam','alok','crono','k','kelly','maxim','skyler']
@@ -421,8 +420,20 @@ let odd = [1, 3, 5, 7, 9];
 // let uppercase= names.map((a)=>a.toUpperCase())
 // console.log(uppercase);
 
-
 //  Qs4. Write a function called doubleAndReturnArgs which accepts an array and a variable number of arguments. The function should return a new array with the original array values and all of the additional arguments doubled.
 
+// function doubleAndReturnArgs(arr, ...args){
+//   return [arr, args.map(a=>a*2)]
+// }
+// console.log(doubleAndReturnArgs(2,1,2,3,4,5,6));
 
-function doubleAndReturnArgs(){}
+//  Qs5. Write a function called mergeObjects that accepts two objects and returns a new object which contains all the keys and values of the first object and second object.
+
+// function mergeObjects(obj1, obj2) {
+//     return { ...obj1, ...obj2 };
+// }
+// const objA = { a: 1, b: 2 };
+// const objB = { b: 3, c: 4 };
+
+// console.log(mergeObjects(objA, objB));
+//{ a: 1, b: 3, c: 4 }
