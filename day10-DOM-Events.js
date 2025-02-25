@@ -209,9 +209,9 @@ let btns = document.querySelectorAll("button");
 
 
 
- document.getElementById("nameInput").addEventListener("input", function () {
-   let filteredValue = this.value.replace(/[^a-zA-Z\s]/g, ""); // this is regex equation that allow only alpabetically and space. Remove non-alphabetic characters
-   this.value = filteredValue; // Update input field to remove invalid characters
-   document.getElementById("displayName").textContent =
-     filteredValue || "Your name will appear here";
- });
+//  document.getElementById("nameInput").addEventListener("input", function () {
+//    let filteredValue = this.value.replace(/[^a-zA-Z\s]/g, ""); // this is regex equation that allow only alpabetically and space. Remove non-alphabetic characters
+//    this.value = filteredValue; // Update input field to remove invalid characters
+//    document.getElementById("displayName").textContent =
+//      filteredValue || "Your name will appear here";
+//  });
