@@ -23,27 +23,36 @@
 //++++++++++++++Activity++++++++++++++++++++++
 // +++++++++++TODO app+++++++++++++++
 
-let btn = document.querySelector("button");
-let ul = document.querySelector("ul");
-let inp = document.querySelector("input");
+// let btn = document.querySelector("button");
+// let ul = document.querySelector("ul");
+// let inp = document.querySelector("input");
 
-btn.addEventListener("click", function () {
-  let listItem = document.createElement("li");
-  listItem.innerText = inp.value;
+// btn.addEventListener("click", function () {
+//   let listItem = document.createElement("li");
+//   listItem.innerText = inp.value;
 
-  let delBtn = document.createElement("button");
-  delBtn.innerText = "delete";
-  delBtn.classList.add("delete");
-  listItem.appendChild(delBtn);
-  ul.appendChild(listItem);
-  inp.value = "";
-// iss me kya hoga na ki jp buttons hume ne html me add kiye h abhi sirf unhi me hi kaam krega.iss ko ache se krne ke 2 tarike phela to hum is niche wala code ko iss function me like to ho jaey ga. and the second wala h ki hum event deligation ka use kre
-});
+//   let delBtn = document.createElement("button");
+//   delBtn.innerText = "delete";
+//   delBtn.classList.add("delete");
+//   listItem.appendChild(delBtn);
+//   ul.appendChild(listItem);
+//   inp.value = "";
+//   // iss me kya hoga na ki jp buttons hume ne html me add kiye h abhi sirf unhi me hi kaam krega.iss ko ache se krne ke 2 tarike phela to hum is niche wala code ko iss function me like to ho jaey ga. and the second wala h ki hum event deligation ka use kre
+// });
 
-// let delBtns = document.querySelectorAll(".delete");
-// for (delBtn of delBtns) {
-//   delBtn.addEventListener("click", function () {
-//     let parent = this.parentElement;
-//     parent.remove();
-//   });
-// }
+// // let delBtns = document.querySelectorAll(".delete");
+// // for (delBtn of delBtns) {
+// //   delBtn.addEventListener("click", function () {
+// //     let parent = this.parentElement;
+// //     parent.remove();
+// //   });
+// // }
+
+// ul.addEventListener("click", function (e) {
+//   if (e.target.nodeName == "BUTTON") {
+//     let item = e.target.parentElement;
+//     item.remove();
+
+//     console.log("deleted");
+//   }
+// });
