@@ -80,41 +80,122 @@
 // chnageColor("blue", 3000);
 
 // +++++++++++++++Promises+++++++++
+
 // the promise object  represents the eventual completion( or failure) of an asynchronous operation and its resulting value.
 
-function saveToDb(data, success, failure) {
-  let interNetSpeed = Math.floor(Math.random() * 10 + 1);
-  if (interNetSpeed > 4) {
-    success();
-  } else {
-    failure();
-  }
-}
+// function saveToDb(data, success, failure) {
+//   let interNetSpeed = Math.floor(Math.random() * 10 + 1);
+//   if (interNetSpeed > 4) {
+//     success();
+//   } else {
+//     failure();
+//   }
+// }
 
-saveToDb(
-  "jatin verma",
-  () => {
-    console.log("sucess: your data saved");
-    saveToDb(
-      "hello World",
-      () => {
-        console.log("sucess2: data 2 saved");
-        saveToDb(
-          "jatin",
-          () => {
-            console.log("sucess3: data was save");
-          },
-          () => {
-            console.log("failure3: data wasn't save");
-          }
-        );
-      },
-      () => {
-        console.log("failure2: data2 was not saved");
-      }
-    );
-  },
-  () => {
-    console.log("failure week connection data was not saved");
-  }
-);
+// saveToDb(
+//   "jatin verma",
+//   () => {
+//     console.log("sucess: your data saved");
+//     saveToDb(
+//       "hello World",
+//       () => {
+//         console.log("sucess2: data 2 saved");
+//         saveToDb(
+//           "jatin",
+//           () => {
+//             console.log("sucess3: data was save");
+//           },
+//           () => {
+//             console.log("failure3: data wasn't save");
+//           }
+//         );
+//       },
+//       () => {
+//         console.log("failure2: data2 was not saved");
+//       }
+//     );
+//   },
+//   () => {
+//     console.log("failure week connection data was not saved");
+//   }
+// );
+
+// +++++++++++++Promis resolve and reject++++++++++++
+
+// function saveToDb(data) {
+//   return new Promise((resolve, reject) => {
+//     let interNetSpeed = Math.floor(Math.random() * 10 + 1);
+//     // console.log(`internet Speed is ${interNetSpeed}`);
+//     if (interNetSpeed > 4) {
+//       resolve("data was saved");
+//     } else {
+//       reject("data was not save");
+//     }
+//   });
+// }
+
+// saveToDb('jatin verma',)
+
+// a promis have multiple state like pending, rejected, fulifield
+
+//++++++++++Promises methods+++++++++++++
+// then() and catch()
+// if codition is fulfield then 'then' is use, and if the condition was rejected then 'catch' is use.
+
+// let request = saveToDb('jatinverma')
+// request.then(()=>{
+//   console.log('promis was resolved');
+//   console.log(request);
+
+// })
+// .catch(()=>{
+//   console.log('promis was rejected');
+//   console.log(request);
+// })
+
+// same work but compact version we directly app then and cath on our function
+
+// saveToDb("jatin verma")
+//   .then(() => {
+//     console.log("promis was resolved");
+//   })
+//   .catch(() => {
+//     console.log("promis was rejected");
+//   });
+
+// +++++++++Promis Chaning+++++++++++++
+// in this we donot need more 'catch' all errors are catch in a single 'catch'
+// saveToDb("jatin verma")
+//   .then(() => {
+//     console.log("Data1 save");
+//     saveToDb("hello World!").then(() => {
+//       console.log("data2 save");
+//     });
+//   })
+//   .catch(() => {
+//     console.log("promis was rejected");
+//   });
+
+// more improver version of this code this is the same code of callback hell wala code but very improved version
+
+// saveToDb("jatin verma")
+//   .then((result) => {
+//     console.log("Data1 save");
+//     console.log("result of promis: ", result);
+
+//     return saveToDb("hello world");
+//   })
+//   .then((result) => {
+//     console.log("data 2 saved");
+//     console.log("result of promis: ", result);
+
+//     return saveToDb("jatin");
+//   })
+//   .then((result) => {
+//     console.log("data3 saved");
+//     console.log("result of promis: ", result);
+//   })
+//   .catch((error) => {
+//     console.log("promis was rejected");
+//     console.log("error of promis:", error);
+//   });
