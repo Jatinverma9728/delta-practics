@@ -12,6 +12,8 @@
 // demo();
 // console.log("done");
 
+// const { resolve } = require("path");
+
 // ++++++++++Visualization the call Stack++++++++++++
 
 // function one() {
@@ -70,14 +72,14 @@
 //     h1.style.color = "purple";
 // }, 3000);
 
-// function chnageColor(color, delay) {
+// function changeColor(color, delay) {
 //   setTimeout(() => {
 //     h1.style.color = color;
 //   }, delay);
 // }
-// chnageColor("red", 1000);
-// chnageColor("green", 2000);
-// chnageColor("blue", 3000);
+// changeColor("red", 1000);
+// changeColor("green", 2000);
+// changeColor("blue", 3000);
 
 // +++++++++++++++Promises+++++++++
 
@@ -199,3 +201,28 @@
 //     console.log("promis was rejected");
 //     console.log("error of promis:", error);
 //   });
+
+//++++++++++++Change color with promises+++++++
+
+// let h1 = document.querySelector("h1");
+
+// function changeColor(color, delay) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       h1.style.color = color;
+//       console.log(`color was changed to ${color}`);
+//       resolve("color was changed");
+//     }, delay);
+//   });
+// }
+// changeColor("red", 1000)
+//   .then(() => {
+//     console.log("color chage was completed");
+//     return changeColor("orange", 1000);
+//   })
+//   .then(() => {
+//     console.log("color was change");
+//     return changeColor("green", 1000);
+//   }).then(()=>{
+//     console.log('complete')
+//   })
