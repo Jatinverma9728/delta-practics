@@ -117,7 +117,7 @@
 
 //++++++++++STATUS CODE++++++++++++
 
-//eg- 
+//eg-
 
 // /Success Codes (2xx)
 // 200 OK → Request successful hai.
@@ -140,9 +140,7 @@
 // 502 Bad Gateway → Server ko galat response mila.
 // 503 Service Unavailable → Server busy hai ya maintenance me hai.
 
-
 //+++++++++++Add information in urls+++++++++++
-
 
 //https://www.example.com/products?id=123
 
@@ -151,6 +149,39 @@
 // 3️⃣ Path: /products → Page ya resource ka location
 // 4️⃣ Query Parameters: ?id=123 → Extra information pass karne ke liye
 
-
 //++++++++HTTPS Headers+++++++++++++
 
+//An HTTP header is a part of the HTTP request and response messages that contain metadata about the request or response. It provides information such as content type, authentication details, caching policies, and more.
+
+// +++++++++++++OUR FIRST REQUEST++++++++++++++++++++++
+
+//===================Using fetch================
+
+let url = "https://catfact.ninja/fact";
+// fetch(url)// it returns a promise by default. that mens we can apply promise methods.
+
+// fetch(url)
+//   .then((res) => {
+//     console.log("response", res);
+//     // res.json() // ise use krte waquat ye dhyan rakhna hoga ki jo api h vo ye respond kr rhi h json kr rhi h html file kr rhi h ya simple text kr rhi h
+
+//     // console.log(res.json())
+//     res.json().then((data) => {
+//       console.log(data.fact);
+//     });
+//   })
+//   .catch((err) => {
+//     console.log("err", err);
+//   });
+
+// better way
+
+// async function getFacts() {
+//   try {
+//     let res = await fetch(url);
+//     let data = await res.json();
+//     console.log(data.fact);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
