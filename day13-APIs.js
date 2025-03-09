@@ -157,7 +157,7 @@
 
 //===================Using fetch================
 
-let url = "https://catfact.ninja/fact";
+// let url = "https://catfact.ninja/fact";
 // fetch(url)// it returns a promise by default. that mens we can apply promise methods.
 
 // fetch(url)
