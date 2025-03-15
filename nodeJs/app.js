@@ -1,8 +1,8 @@
-const { log } = require("util");
+// const { log } = require("util");
 
-const sum = (a, b) => a + b;
-const mul = (a, b) => a * b;
-const g = 9.4;
+// const sum = (a, b) => a + b;
+// const mul = (a, b) => a * b;
+// const g = 9.4;
 // const pi = 3.14;
 
 // module.exports = 1234; // exporting values to other file, values can be any, but bassicaly we exports a object.
