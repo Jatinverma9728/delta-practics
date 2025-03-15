@@ -45,4 +45,3 @@
 //3. export the the new variable and.
 
 //4. go to which file where we need to require all files and after that we require the folder which have all data we need to fetch. like this( const data = require('./fruits) and all set). use the fetched data where we want
-
