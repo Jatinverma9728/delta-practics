@@ -1,0 +1,46 @@
+{
+  "dog": {
+    "name": "dog",
+    "followers": "25000",
+    "following": 5,
+    "posts": [
+      {
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthe-pikers-pit.co.uk%2Fviewtopic.php%3Ft%3D36668&psig=AOvVaw1Vq2gWPeVUp-iinrZKY7La&ust=1742922716446000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKiKrJ2bo4wDFQAAAAAdAAAAABAJ",
+        "likes": 200,
+        "comments": 17
+      },
+      {
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fantimeme%2Fcomments%2Fq135r6%2Frandom_photo_of_a_dog%2F&psig=AOvVaw1Vq2gWPeVUp-iinrZKY7La&ust=1742922716446000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKiKrJ2bo4wDFQAAAAAdAAAAABAO",
+        "likes": 122,
+        "comments": 12
+      },
+      {
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Fkerolloz%2Frandom-dog-image&psig=AOvVaw1Vq2gWPeVUp-iinrZKY7La&ust=1742922716446000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKiKrJ2bo4wDFQAAAAAdAAAAABAW",
+        "likes": 2000,
+        "comments": 157
+      }
+    ]
+  },
+  "elephant": {
+    "name": "elephant",
+    "followers": "16540",
+    "following": 465,
+    "posts": [
+      {
+        "image": "https://media.istockphoto.com/id/976318522/photo/baby-elephant-enjoying-the-nature.jpg?s=612x612&w=is&k=20&c=tVNEkDVEuYkuSXSGLekCQ6KsWotm0qYpie1gD1uCuug=",
+        "likes": 120000,
+        "comments": 1745
+      },
+      {
+        "image": "https://media.istockphoto.com/id/157503771/photo/african-elephant-calf-playing-on-a-road.jpg?s=612x612&w=is&k=20&c=vQKu4HLnti5bWlxqiX7HZII74r3MHX-sFGLLre1HjF0=",
+        "likes": 41524,
+        "comments": 453
+      },
+      {
+        "image": "https://media.istockphoto.com/id/167154432/photo/an-elephant-and-its-baby-walking-in-long-grass.jpg?s=612x612&w=is&k=20&c=MVsmgoE6uAHMwcTEiG3pAsDX41HU5RzGgpxFek5GT9I=",
+        "likes": 465773,
+        "comments": 1577
+      }
+    ]
+  }
+}
