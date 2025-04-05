@@ -9,6 +9,9 @@ const { log } = require("node:console");
 const app = express();
 const port = 3000;
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
+
+
 app.set("view engin", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -20,17 +23,17 @@ app.get("/posts", (req, res) => {
 
 let posts = [
   {
-    id: "1a",
+    id: uuidv4(),
     username: "jatinverma",
     content: "hello this is jatin",
   },
   {
-    id: "1b",
+    id: uuidv4(),
     username: "vaishnavi",
     content: "hello this is vaishnavi",
   },
   {
-    id: "1c",
+    id: uuidv4(),
     username: "verma",
     content: "hello this is verma",
   },
@@ -46,13 +49,14 @@ app.get("/posts/new", (req, res) => {
 
 app.post("/posts", (req, res) => {
   let { username, content } = req.body;
-  posts.push({ username, content });
+  let id = uuidv4()
+  posts.push({id, username, content });
   res.redirect("/posts");
 });
 
 app.get("/posts/:id", (req, res) => {
   let { id } = req.params;
   let post = posts.find((p) => id === p.id);
- res.render('show.ejs',{post})
-//   res.send("request is working");
+  res.render("show.ejs", { post });
+  //   res.send("request is working");
 });
