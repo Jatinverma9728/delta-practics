@@ -27,16 +27,22 @@ let posts = [
     id: uuidv4(),
     username: "jatinverma",
     content: "hello this is jatin",
+    image:
+      "https://cdn.pixabay.com/photo/2018/08/04/11/30/draw-3583548_960_720.png",
   },
   {
     id: uuidv4(),
     username: "vaishnavi",
     content: "hello this is vaishnavi",
+    image:
+      "https://cdn.pixabay.com/photo/2020/11/19/14/03/woman-5758660_1280.jpg",
   },
   {
     id: uuidv4(),
     username: "verma",
     content: "hello this is verma",
+    image:
+      "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
 
@@ -49,9 +55,9 @@ app.get("/posts/new", (req, res) => {
 });
 
 app.post("/posts", (req, res) => {
-  let { username, content } = req.body;
+  let { username, content,image } = req.body;
   let id = uuidv4();
-  posts.push({ id, username, content });
+  posts.push({ id, username, content ,image});
   res.redirect("/posts");
 });
 

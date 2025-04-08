@@ -9,9 +9,13 @@
     <h2>edit you Post</h2>
     <p>Post id:<%= post.id %> </p>
     <p>@Username: <%= post.username %></p>
+          <img src="<%= post.image%>" alt="">
+
     <br>
     <form action="/posts/<%=post.id %>?_method=PATCH" method="post">
-        <textarea name="content" id="" rows="10" cols="25"></textarea>
+        <textarea name="content" id="" rows="10" cols="25"></textarea><br>
+                <input name="image" type="text" id="imageInput" accept="image/*" placeholder="enter new image link"><br>
+
         <button>Submit</button>
     </form> 
 </body>
