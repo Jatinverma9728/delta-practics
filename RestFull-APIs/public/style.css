@@ -1,10 +1,9 @@
-h1{
-    color: red;
+h1 {
+  color: red;
 }
-.post{
-    background: blanchedalmond;
-
+.post {
+  background: blanchedalmond;
 }
-.user{
-    font-style: italic;
+.user {
+  font-style: italic;
 }
