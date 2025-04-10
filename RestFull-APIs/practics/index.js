@@ -55,9 +55,9 @@ app.get("/posts/new", (req, res) => {
 });
 
 app.post("/posts", (req, res) => {
-  let { username, content,image } = req.body;
+  let { username, content, image } = req.body;
   let id = uuidv4();
-  posts.push({ id, username, content ,image});
+  posts.push({ id, username, content, image });
   res.redirect("/posts");
 });
 
@@ -83,8 +83,8 @@ app.get("/posts/:id/edit", (req, res) => {
   res.render("edit.ejs", { post });
 });
 
-app.delete('/posts/:id',(req,res)=>{
+app.delete("/posts/:id", (req, res) => {
   let { id } = req.params;
-   posts = posts.filter((p) => id !== p.id);
+  posts = posts.filter((p) => id !== p.id);
   res.redirect("/posts");
-})
+});
