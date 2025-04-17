@@ -1,5 +1,10 @@
 const { faker, th } = require("@faker-js/faker");
 const mysql = require("mysql2");
+const express = require("express");
+const app = express();
+const path = require("path");
+app.set("view engin", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 // connection with mySQL
 const connection = mysql.createConnection({
@@ -19,7 +24,7 @@ let getRandomUser = () => {
 };
 
 // querry inserting new data
-let q = "INSERT INTO usr (id,username,email,password) VALUES ?";
+// let q = "INSERT INTO usr (id,username,email,password) VALUES ?";
 
 // manually create data
 // let users = [
@@ -27,19 +32,39 @@ let q = "INSERT INTO usr (id,username,email,password) VALUES ?";
 //   ["14", "124_newuser", "acd@gmail.com", "abd"],
 // ];
 
-let data = [];
-for (let i = 0; i <= 100; i++) {
-  data.push(getRandomUser()); //100 fake user data
-}
+// let data = [];
+// for (let i = 0; i <= 100; i++) {
+//   data.push(getRandomUser()); //100 fake user data
+// }
 
-try {
-  connection.query(q, [data], (err, result) => {
-    if (err) throw err;
-    console.log(result);
-  });
-} catch (err) {
-  console.log(err);
-}
+//
 
-// need to end the connection if we not end this it run infinite
-connection.end();
+app.get("/", (req, res) => {
+  let q = `SELECT count(*) FROM USR`;
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      console.log(result[0]["count(*)"]);
+      res.render("home.ejs");
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");
+  }
+});
+
+app.listen("3000", () => {
+  console.log("server is listning to port 3000");
+});
+
+//try {
+//   connection.query(q, [data], (err, result) => {
+//     if (err) throw err;
+//     console.log(result);
+//   });
+// } catch (err) {
+//   console.log(err);
+// }
+
+// // need to end the connection if we not end this it run infinite
+// connection.end();
