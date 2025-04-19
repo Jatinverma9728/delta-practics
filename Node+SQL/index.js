@@ -37,7 +37,7 @@ let getRandomUser = () => {
 //   data.push(getRandomUser()); //100 fake user data
 // }
 
-//
+//home route
 
 app.get("/", (req, res) => {
   let q = `SELECT count(*) FROM USR`;
@@ -53,18 +53,41 @@ app.get("/", (req, res) => {
   }
 });
 
+// show user's Route
+
+app.get('/user',(req,res)=>{
+let q = `SELECT * FROM usr`;
+try {
+  connection.query(q, (err, users) => {
+    if (err) throw err;
+ res.render('showUsers.ejs',{users})
+  });
+} catch (err) {
+  console.log(err);
+  res.send("some error in database");
+}
+})
+
+//edit route
+app.get('/user/:id/edit',(req,res)=>{
+  let {id}=req.params;
+  let q = `SELECT FROM* usr WHERE ID='${id}'`
+  res.render('edit.ejs')
+try {
+  connection.query(q, (err, result) => {
+    if (err) throw err;
+    let user=result[0]
+    res.render("edit.ejs", { user });
+  });
+} catch (err) {
+  console.log(err);
+  res.send("some error in database");
+}
+})
+
 app.listen("3000", () => {
   console.log("server is listning to port 3000");
 });
 
-//try {
-//   connection.query(q, [data], (err, result) => {
-//     if (err) throw err;
-//     console.log(result);
-//   });
-// } catch (err) {
-//   console.log(err);
-// }
 
-// // need to end the connection if we not end this it run infinite
-// connection.end();
+
