@@ -3,6 +3,11 @@ const mysql = require("mysql2");
 const express = require("express");
 const app = express();
 const path = require("path");
+const { log } = require("console");
+const methodOverride = require("method-override");
+
+app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: true }));
 app.set("view engin", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -45,7 +50,7 @@ app.get("/", (req, res) => {
     connection.query(q, (err, result) => {
       if (err) throw err;
       let count = result[0]["count(*)"];
-      res.render("home.ejs",{count});
+      res.render("home.ejs", { count });
     });
   } catch (err) {
     console.log(err);
@@ -55,39 +60,60 @@ app.get("/", (req, res) => {
 
 // show user's Route
 
-app.get('/user',(req,res)=>{
-let q = `SELECT * FROM usr`;
-try {
-  connection.query(q, (err, users) => {
-    if (err) throw err;
- res.render('showUsers.ejs',{users})
-  });
-} catch (err) {
-  console.log(err);
-  res.send("some error in database");
-}
-})
+app.get("/user", (req, res) => {
+  let q = `SELECT * FROM usr`;
+  try {
+    connection.query(q, (err, users) => {
+      if (err) throw err;
+      res.render("showUsers.ejs", { users });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");
+  }
+});
 
 //edit route
-app.get('/user/:id/edit',(req,res)=>{
-  let {id}=req.params;
-  let q = `SELECT FROM* usr WHERE ID='${id}'`
-  res.render('edit.ejs')
-try {
-  connection.query(q, (err, result) => {
-    if (err) throw err;
-    let user=result[0]
-    res.render("edit.ejs", { user });
-  });
-} catch (err) {
-  console.log(err);
-  res.send("some error in database");
-}
-})
+app.get("/user/:id/edit", (req, res) => {
+  let { id } = req.params;
+  let q = `SELECT * FROM usr WHERE id='${id}'`;
+
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let user = result[0];
+      res.render("edit.ejs", { user });
+      console.log(result);
+
+      // res.render("edit.ejs", { user });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");
+  }
+});
+
+// update route
+
+app.patch("/user/:id", (req, res) => {
+    let { id } = req.params;
+    let q = `SELECT * FROM usr WHERE id='${id}'`;
+  res.send("updated");
+   try {
+     connection.query(q, (err, result) => {
+       if (err) throw err;
+       let user = result[0];
+       res.render("edit.ejs", { user });
+       console.log(result);
+
+       // res.render("edit.ejs", { user });
+     });
+   } catch (err) {
+     console.log(err);
+     res.send("some error in database");
+   }
+});
 
 app.listen("3000", () => {
   console.log("server is listning to port 3000");
 });
-
-
-
