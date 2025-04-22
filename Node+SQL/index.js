@@ -73,6 +73,23 @@ app.get("/user", (req, res) => {
   }
 });
 
+
+// add new user route
+
+app.get('/user/addnewuser',(req,res)=>{
+   try {
+     connection.query((err, result) => {
+       if (err) throw err;
+       res.render("addnewuser.ejs");
+       console.log(result);
+       
+     });
+   } catch (err) {
+     console.log(err);
+     res.send("some error in adding new user");
+   }
+})
+
 //edit route
 app.get("/user/:id/edit", (req, res) => {
   let { id } = req.params;
@@ -96,22 +113,29 @@ app.get("/user/:id/edit", (req, res) => {
 // update route
 
 app.patch("/user/:id", (req, res) => {
-    let { id } = req.params;
-    let q = `SELECT * FROM usr WHERE id='${id}'`;
-  res.send("updated");
-   try {
-     connection.query(q, (err, result) => {
-       if (err) throw err;
-       let user = result[0];
-       res.render("edit.ejs", { user });
-       console.log(result);
-
-       // res.render("edit.ejs", { user });
-     });
-   } catch (err) {
-     console.log(err);
-     res.send("some error in database");
-   }
+  let { id } = req.params;
+  let { password: formPass, username: newUsername } = req.body;
+  let q = `SELECT * FROM usr WHERE id='${id}'`;
+  // res.send("updated");
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let user = result[0];
+      if (formPass != user.password) {
+        res.send("wrong password");
+      } else {
+        let q2 = `UPDATE usr SET username='${newUsername}' WHERE id='${id}'`;
+        connection.query(q2, (err, result) => {
+          if (err) throw err;
+          res.redirect("/user");
+        });
+      }
+      // res.render("edit.ejs", { user });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");
+  }
 });
 
 app.listen("3000", () => {
