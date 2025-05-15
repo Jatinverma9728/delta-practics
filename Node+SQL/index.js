@@ -76,19 +76,20 @@ app.get("/user", (req, res) => {
 
 // add new user route
 
-app.get('/user/addnewuser',(req,res)=>{
-   try {
-     connection.query((err, result) => {
-       if (err) throw err;
-       res.render("addnewuser.ejs");
-       console.log(result);
-       
-     });
-   } catch (err) {
-     console.log(err);
-     res.send("some error in adding new user");
-   }
-})
+app.get("/addnewuser", (req, res) => {
+  let q = `SELECT count(*) FROM USR`;
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let count = result[0]["count(*)"];
+      res.render("addnewuser.ejs", { count });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in database");
+  }
+});
+
 
 //edit route
 app.get("/user/:id/edit", (req, res) => {

@@ -13,6 +13,9 @@
     </style>
   </head>
   <body>
+    <h2>add new user</h2>
+    <a href="addnewuser">add new user</a><br /><br />
+
     <table>
       <tr>
         <th>Id</th>
@@ -25,7 +28,7 @@
         <td><%= user.email%></td>
         <td><%= user.username%></td>
         <td>
-          <form method="GET" action="/user/<%= user.id%>/edit" >
+          <form method="GET" action="/user/<%= user.id%>/edit">
             <button>edit username</button>
           </form>
         </td>
