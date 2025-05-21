@@ -81,5 +81,4 @@ User.findById("68262ce5742d539411be8ef8")
     console.log(err);
   });
 
-
 // model.findOne() returns a single result
