@@ -100,10 +100,10 @@ const User = mongoose.model("User", userSchema);
 // Model.deleteOne()
 // Model.deleteMany()
 
-User.findByIdAndDelete("68262ce5742d539411be8ef8")
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// User.findByIdAndDelete("68262ce5742d539411be8ef8")
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
