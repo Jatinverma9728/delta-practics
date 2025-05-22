@@ -73,12 +73,37 @@ const User = mongoose.model("User", userSchema);
 //model.find() return a thennable object
 // mongoose Queries are not promises.but they have a .then()
 
-User.findById("68262ce5742d539411be8ef8")
+// User.findById("68262ce5742d539411be8ef8")
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// model.findOne() returns a single result
+
+/// update
+// Model.updateOne()
+// Model.updateMany()
+
+// User.findByIdAndUpdate("68262f286cc2563c7b26cc04", { age: 25 })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+
+// Delete
+// Model.deleteOne()
+// Model.deleteMany()
+
+User.findByIdAndDelete("68262ce5742d539411be8ef8")
   .then((res) => {
     console.log(res);
   })
   .catch((err) => {
     console.log(err);
   });
-
-// model.findOne() returns a single result
