@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { title } = require("process");
 
 main()
   .then((res) => {
@@ -14,6 +15,8 @@ async function main() {
 // schema / Modeles
 
 // schema defines the shape of the documents within the collection
+
+// method 1 of defining a schema.
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -100,10 +103,37 @@ const User = mongoose.model("User", userSchema);
 // Model.deleteOne()
 // Model.deleteMany()
 
-User.findByIdAndDelete("68262ce5742d539411be8ef8")
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// User.findByIdAndDelete("68262ce5742d539411be8ef8")
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+
+// method 2 of defining a schema 
+
+const bookSchema= mongoose.Schema({
+  title:{
+    type: String,
+    required: true, 
+  },
+  author:{
+    type: String,
+  },
+  price:{
+    type: Number,
+    default: 100, // we can set any value to default
+  },
+  discount:{
+    type: Number,
+    default: 10,
+  },
+  category:{
+    type: String,
+    enum: ["simple","self-help book"] // category check krega agr inn me se hogi to thik nhi to error aajyega
+  },
+})
+
+// ih this type of schema is very useful and we mostyl use this the previous one method was shortcut method.
