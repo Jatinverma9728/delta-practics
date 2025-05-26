@@ -46,4 +46,4 @@ let allChats = [
 
 
 
-Chat.deleteMany(allChats);
+Chat.insertMany(allChats);
