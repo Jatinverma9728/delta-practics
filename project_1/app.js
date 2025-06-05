@@ -5,6 +5,8 @@ const Listing = require("./models/listing");
 const path = require("path");
 const mongo_URL = "mongodb://127.0.0.1:27017/wonderlust";
 const methodOverride = require("method-override");
+const ejsMate= require('ejs-mate')
+
 main()
   .then(() => {
     console.log("connected to database😊");
@@ -19,7 +21,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
+app.engine('ejs',ejsMate)
+app.use(express.static(path.join(__dirname,'/public')))
 // root api
 
 app.get("/", (req, res) => {
