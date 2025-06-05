@@ -5,7 +5,7 @@ const Listing = require("./models/listing");
 const path = require("path");
 const mongo_URL = "mongodb://127.0.0.1:27017/wonderlust";
 const methodOverride = require("method-override");
-const ejsMate= require('ejs-mate')
+const ejsMate = require("ejs-mate");
 
 main()
   .then(() => {
@@ -21,8 +21,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.engine('ejs',ejsMate)
-app.use(express.static(path.join(__dirname,'/public')))
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 // root api
 
 app.get("/", (req, res) => {
@@ -57,20 +57,19 @@ app.get("/listings/:id/edit", async (req, res) => {
 });
 
 //update route
-app.put('/listings/:id',async(req,res)=>{
+app.put("/listings/:id", async (req, res) => {
   let { id } = req.params;
-  await Listing.findByIdAndUpdate(id,{...req.body.listing});
-  res.redirect(`/listings/${id}`)
-})
+  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  res.redirect(`/listings/${id}`);
+});
 
 //delete route
-app.delete('/listings/:id',async(req,res)=>{
-  let {id} = req.params; 
+app.delete("/listings/:id", async (req, res) => {
+  let { id } = req.params;
   let deleteListing = await Listing.findByIdAndDelete(id);
   console.log(deleteListing);
-  res.redirect('/listings')
-  
-})
+  res.redirect("/listings");
+});
 
 // show route
 

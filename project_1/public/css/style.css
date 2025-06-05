@@ -1,12 +1,12 @@
-body{
+body {
   font-family: "Plus Jakarta Sans", sans-serif !important;
-display: flex;
-flex-direction: column;
-height: 100vh;
-margin: 0 !important;
-padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-.container{
+.container {
   flex: 1;
 }
 .navbar {
@@ -20,13 +20,13 @@ padding: 0 !important;
 .nav-link {
   color: #222222 !important;
 }
- .card-img-overlay{
-    opacity: 0;
- }
- .card-img-overlay:hover{
-    opacity: 0.1;
-    background: white;
- }
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  opacity: 0.1;
+  background: white;
+}
 /* footer */
 
 .f-info-links a {
@@ -36,7 +36,9 @@ padding: 0 !important;
 .f-info-links a:hover {
   text-decoration: underline;
 }
-.f-info-links, .f-info-socials, brand {
+.f-info-links,
+.f-info-socials,
+brand {
   width: 100%;
 }
 .f-info-socials i {
@@ -54,38 +56,38 @@ padding: 0 !important;
 }
 
 /* cards */
-.card{
-    border: none !important;
-    margin-bottom: 2rem !important;
+.card {
+  border: none !important;
+  margin-bottom: 2rem !important;
 }
-.card-img-top{
-border-radius: 1rem !important;
-width: 100% !important;
-object-fit: cover !important;
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
 }
-.card-bod{
-    padding: 0 !important;
+.card-bod {
+  padding: 0 !important;
 }
-.card-text p{
-    font-weight: 400;
+.card-text p {
+  font-weight: 400;
 }
 
 /* Add page */
-.add-btn{
+.add-btn {
   background-color: #fe424d !important;
   border: none !important;
 }
 
 /* show page */
 
-.show-image{
+.show-image {
   height: 30vh !important;
 }
-.btns{
+.btns {
   display: flex;
   gap: 2rem;
 }
-.show-card{
+.show-card {
   padding-left: 0;
-  padding-right: 0; 
+  padding-right: 0;
 }
