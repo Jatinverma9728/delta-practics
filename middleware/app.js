@@ -1,16 +1,20 @@
+const { log } = require('console');
 const express = require('express');
 const app = express();
 
 
 app.use((req, res, next) => {
-    console.log('Middleware function executed');
+    req.responseTime = new Date(Date.now()).toLocaleString();
+    console.log(req.method, req.path, req.responseTime);
+    
+    // console.log('Middleware function executed');
     next(); // Call the next middleware or route handler
 })
 
-app.use((req, res, next) => {
-    console.log('Another middleware function executed');
-    next(); // Call the next middleware or route handler
-});
+// app.use((req, res, next) => {
+//     console.log('Another middleware function executed');
+//     next(); // Call the next middleware or route handler
+// });
 
 app.get("/", (req, res) => {
   res.send("Hello, this is rootroute!");
