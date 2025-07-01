@@ -6,7 +6,8 @@ const path = require("path");
 const mongo_URL = "mongodb://127.0.0.1:27017/wonderlust";
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-
+const wrapAsync = require("./utils/wrapAsync");
+const ExpressError = require("./utils/ExpressError");
 main()
   .then(() => {
     console.log("connected to database😊");
@@ -42,11 +43,14 @@ app.get("/listings/new", (req, res) => {
 });
 
 //create route
-app.post("/listings", async (req, res) => {
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  res.redirect("/listings");
-});
+app.post(
+  "/listings",
+  wrapAsync(async (req, res, next) => {
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+  })
+);
 
 //edit route
 
@@ -92,6 +96,18 @@ app.get("/listings/:id", async (req, res) => {
 //   console.log("sample page");
 //   res.send("this is sample listing page");
 // });
+
+// page not found
+
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "page not found"));
+});
+
+//error handler middlerware
+app.use((err, req, res, next) => {
+  let { statusCode, message } = err;
+  res.status(statusCode).send(message);
+});
 
 app.listen(5000, () => {
   console.log("server is listening to port 5000🚀");
