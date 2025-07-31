@@ -1,0 +1,117 @@
+<% layout('/layouts/boilerplate') %>
+
+<style>
+  /* You can move this CSS to your main stylesheet if you prefer */
+  .error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 80vh;
+    font-family: 'Poppins', sans-serif;
+    color: #484848;
+    overflow: hidden; /* Prevents animations from showing scrollbars */
+  }
+  .error-svg {
+    width: 150px;
+    margin-bottom: 2rem;
+  }
+  .error-code {
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ff5a5f;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .error-message {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+  .error-submessage {
+    font-size: 1rem;
+    color: #767676;
+    margin-bottom: 2.5rem;
+    max-width: 400px;
+  }
+  .error-btn {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .error-btn:hover {
+    background-color: #e04f54;
+    transform: translateY(-2px);
+    color: white;
+  }
+
+  /* --- NEW: Animation Keyframes --- */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* --- NEW: Applying Animations --- */
+  /* Base animation for all direct children */
+  .error-container > * {
+    animation: fadeInUp 0.8s ease-out backwards;
+  }
+
+  /* Stagger the animations for a nice sequential effect */
+  .error-svg { animation-delay: 0.1s; }
+  .error-code { animation-delay: 0.2s; }
+  .error-message { animation-delay: 0.3s; }
+  .error-submessage { animation-delay: 0.4s; }
+  .error-btn { animation-delay: 0.5s; }
+
+  /* Add a continuous pulse animation to the icon after it appears */
+  .error-svg {
+    animation: fadeInUp 0.8s ease-out backwards, pulse 2.5s infinite 1s;
+  }
+
+</style>
+
+<!-- Add Google Font for better typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<div class="error-container">
+    <!-- Simple and clean SVG for a modern look -->
+    <svg class="error-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="#ff5a5f"/>
+    </svg>
+
+    <h1 class="error-code">404</h1>
+    <p class="error-message">Oops! It looks like you're lost.</p>
+    <p class="error-submessage">
+        The page you’re looking for doesn’t exist, might have been removed, or is temporarily unavailable. Let's get you back on track!
+    </p>
+    <a href="/listings" class="btn error-btn">Back to Homepage</a>
+</div>

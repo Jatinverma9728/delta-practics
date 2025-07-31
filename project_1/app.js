@@ -31,16 +31,34 @@ app.get("/", (req, res) => {
 });
 
 // home page
-app.get("/listings", async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("listings/index.ejs", { allListings });
+// root api
+app.get("/", (req, res) => {
+  res.send("this is root directory");
 });
 
-//new route
+// home page
+app.get(
+  "/listings",
+  wrapAsync(async (req, res) => {
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs", { allListings });
+  })
+);
 
+//new route - ✅ This MUST come before /listings/:id
 app.get("/listings/new", (req, res) => {
   res.render("listings/new.ejs");
 });
+
+// Show route - ✅ Placed after /new but before other /:id routes
+app.get(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
+  })
+);
 
 //create route
 app.post(
@@ -53,62 +71,47 @@ app.post(
 );
 
 //edit route
-
-app.get("/listings/:id/edit", async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id);
-  res.render("listings/edit.ejs", { listing });
-});
+app.get(
+  "/listings/:id/edit",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", { listing });
+  })
+);
 
 //update route
-app.put("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-  res.redirect(`/listings/${id}`);
-});
+app.put(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    res.redirect(`/listings/${id}`);
+  })
+);
 
 //delete route
-app.delete("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  let deleteListing = await Listing.findByIdAndDelete(id);
-  console.log(deleteListing);
-  res.redirect("/listings");
+app.delete(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let deleteListing = await Listing.findByIdAndDelete(id);
+    console.log(deleteListing);
+    res.redirect("/listings");
+  })
+);
+
+// Page not found
+app.use((req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
 });
 
-// show route
-
-app.get("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id);
-  res.render("listings/show.ejs", { listing });
-});
-
-// app.get("/testListing", async (req, res) => {
-//   let sampleListing = new Listing({
-//     title: "verma villa",
-//     description: "front of beach sea view ",
-//     price: 1200,
-//     location: "swali beach",
-//     Countery: "India",
-//   });
-
-//   await sampleListing.save();
-//   console.log("sample page");
-//   res.send("this is sample listing page");
-// });
-
-// page not found
-
-app.all("*", (req, res, next) => {
-  next(new ExpressError(404, "page not found"));
-});
-
-//error handler middlerware
 app.use((err, req, res, next) => {
-  let { statusCode, message } = err;
-  res.status(statusCode).send(message);
+  let { statusCode = 500, message = "Something went wrong!" } = err;
+  res.status(statusCode).render("listings/error.ejs", { message });
 });
 
 app.listen(5000, () => {
   console.log("server is listening to port 5000🚀");
 });
+ 
