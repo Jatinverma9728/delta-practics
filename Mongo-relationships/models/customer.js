@@ -57,3 +57,7 @@ addCustomer();
 // };
 
 // addOrder();
+
+
+// ++++++++++One to many(one to squillions)
+//store a refrence to the parent documnet inside child.
