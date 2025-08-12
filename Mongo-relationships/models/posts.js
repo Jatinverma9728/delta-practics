@@ -31,18 +31,19 @@ const User = mongoose.model("User", userSchema);
 const Post = mongoose.model("Posts", userPost);
 
 const addData = async () => {
-  let user1 = new User({
-    username: "jatin kumar",
-    email: "vermajati477@gmail.com",
+  let user = await User.findOne({ username: "jatin kumar" });
+
+  // username: "jatin kumar",
+  // email: "vermajati477@gmail.com",
+
+  let post2 = new Post({
+    username: "bye bye",
+    content: "Heyy my name is jatin",
+    likes: 71,
   });
-  let post1 = new Post({
-    username: "jatin kumar",
-    content:"hello worls",
-    likes: 7,
-  });
-  post1.user = user1; 
-  await user1.save();
-  await post1.save();
+  post2.user = user;
+  // await user1.save();
+  await post2.save();
 };
 
-addData()
+addData();
