@@ -47,3 +47,9 @@ const addData = async () => {
 };
 
 addData();
+
+const getData = async () => {
+  let res = await Post.findOne({}).populate("user");
+  console.log(res);
+};
+getData();
