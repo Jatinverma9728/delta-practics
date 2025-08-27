@@ -141,12 +141,13 @@ app.post("/listings/:id/reviews", validateReview, wrapAsync(
 ));
 
 //delete review route
-app.delete("/listins/:id/reviews/:reviewId",wrapAsync(async(req,res)=>{
-  let{id,reviewId} = req.params;
-  await Listing.findByIdAndUpdate(id,{$pull:{reviews:reviewId}});
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
+  let { id, reviewId } = req.params;
+  await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
   await Review.findByIdAndDelete(reviewId);
   res.redirect(`/listings/${id}`);
-}))
+}));
+
 
 
 
