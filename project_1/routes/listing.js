@@ -32,9 +32,8 @@ router.get("/new", (req, res) => {
 });
 
 // Show route - ✅ Placed after /new but before other /:id routes
-router.get(
-    "/:id",
-    wrapAsync(async (req, res) => {
+router.get("/:id",
+    wrapAsync(async (req, res)  => {
         let { id } = req.params;
         const listing = await Listing.findById(id).populate("reviews");;
         res.render("listings/show.ejs", { listing });

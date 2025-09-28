@@ -8,6 +8,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError");
 const listings = require("./routes/listing");
 const reviews = require("./routes/review");
+const cookieParser = require("cookie-parser");
 
 main()
   .then(() => {
@@ -31,14 +32,34 @@ app.get("/", (req, res) => {
   res.send("this is root directory");
 });
 
+app.use(cookieParser("secret"));
+
+app.get("/getSignedCookie", (req, res) => {
+  res.cookie("madeIn", "India", { signed: true });
+  res.send("this is signed cookie");
+})
+
+app.get('/verify', (req, res) => {
+  console.log(req.signedCookies);
+  res.send('verified')
+})
+
+// cookies 
+app.get("/getcookies", (req, res) => {
+  res.cookie("greeting", "nameste");
+  res.send("this is cookies 🍪");
+})
+
 // home page
 // root api
 app.get("/", (req, res) => {
+  console.dir(req.cookies)
   res.send("this is root directory");
 });
 
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews)
+
 
 
 // Page not found
