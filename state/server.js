@@ -3,23 +3,23 @@ const app = express();
 
 const session = require('express-session');
 
-const sessionOptions={
-    secret:"mysuppersecret",
-    resave:false,
-    saveUninitialized:false
+const sessionOptions = {
+    secret: "mysuppersecret",
+    resave: false,
+    saveUninitialized: false
 }
-app.use(session(sessionOptions)); 
+app.use(session(sessionOptions));
 
 app.get("/register", (req, res) => {
-    let{name = "anonymous"}= req.query;
+    let { name = "anonymous" } = req.query;
     req.session.name = name;
     console.log(req.session.name);
-    
-    res.send(`Welcome ${name}`)
-    });
+    res.redirect('/hello')
 
-app.get('/hello',(req,res)=>{
-res.send("Hello World")
+});
+
+app.get('/hello', (req, res) => {
+    res.send(`hello, ${req.session.name}`)
 
 })
 
